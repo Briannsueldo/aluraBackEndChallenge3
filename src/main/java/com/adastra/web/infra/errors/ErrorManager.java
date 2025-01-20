@@ -1,4 +1,4 @@
-package com.adastra.web.infra;
+package com.adastra.web.infra.errors;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;

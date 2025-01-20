@@ -24,7 +24,6 @@ import com.adastra.web.domain.topicModel.Topic;
 import com.adastra.web.domain.topicModel.TopicRepository;
 import com.adastra.web.domain.topicModel.UpdateTopicData;
 
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
