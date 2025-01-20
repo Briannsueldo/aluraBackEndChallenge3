@@ -52,6 +52,9 @@ public class Topic {
 
 
     public void updateData(UpdateTopicData updateTopicData) {
+        if (updateTopicData.user_alias() != null) {
+            this.user_alias = updateTopicData.user_alias();
+        }
         if(updateTopicData.title() != null) {
             this.title = updateTopicData.title();
         }
