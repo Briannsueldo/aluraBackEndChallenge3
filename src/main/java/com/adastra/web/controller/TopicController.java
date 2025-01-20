@@ -18,12 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.adastra.web.topicModel.RecordTopic;
-import com.adastra.web.topicModel.RegisterTopicData;
-import com.adastra.web.topicModel.Topic;
-import com.adastra.web.topicModel.TopicRepository;
-import com.adastra.web.topicModel.UpdateTopicData;
+import com.adastra.web.domain.topicModel.RecordTopic;
+import com.adastra.web.domain.topicModel.RegisterTopicData;
+import com.adastra.web.domain.topicModel.Topic;
+import com.adastra.web.domain.topicModel.TopicRepository;
+import com.adastra.web.domain.topicModel.UpdateTopicData;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
@@ -35,7 +36,7 @@ public class TopicController {
     private TopicRepository topicRepository;
     
     @PostMapping
-    public ResponseEntity<RegisterTopicData> registerMessage(@RequestBody RecordTopic topic, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity<RegisterTopicData> registerMessage(@RequestBody @Valid RecordTopic topic, UriComponentsBuilder uriComponentsBuilder) {
         System.out.println(topic);
         Topic newTopic = topicRepository.save(new Topic(topic));
         RegisterTopicData registerTopicData = new RegisterTopicData(newTopic.getId(), newTopic.getUser_alias(), newTopic.getTitle(), newTopic.getMessage(), newTopic.getCategory());
@@ -71,6 +72,7 @@ public class TopicController {
     @Transactional
     public ResponseEntity<RegisterTopicData> returnTopicData(@PathVariable Long id) {
         Topic topic = topicRepository.getReferenceById(id);
+        topic.getId();
         var topicData = new RegisterTopicData(topic.getId(), topic.getUser_alias(), topic.getTitle(), topic.getMessage(), topic.getCategory());
         return ResponseEntity.ok(topicData);
     }

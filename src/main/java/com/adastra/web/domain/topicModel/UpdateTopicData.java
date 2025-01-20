@@ -1,6 +1,6 @@
-package com.adastra.web.topicModel;
+package com.adastra.web.domain.topicModel;
 
-import com.adastra.web.topicModel.enums.Category;
+import com.adastra.web.domain.topicModel.enums.Category;
 
 import jakarta.validation.constraints.NotNull;
 

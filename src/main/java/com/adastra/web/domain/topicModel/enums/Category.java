@@ -1,4 +1,4 @@
-package com.adastra.web.topicModel.enums;
+package com.adastra.web.domain.topicModel.enums;
 
 public enum Category {
     QUESTION,

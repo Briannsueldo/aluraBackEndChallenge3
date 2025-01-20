@@ -1,9 +1,9 @@
-package com.adastra.web.topicModel;
+package com.adastra.web.domain.topicModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.adastra.web.topicModel.enums.Category;
+import com.adastra.web.domain.topicModel.enums.Category;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

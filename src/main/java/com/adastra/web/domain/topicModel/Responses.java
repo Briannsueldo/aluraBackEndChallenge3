@@ -1,4 +1,4 @@
-package com.adastra.web.topicModel;
+package com.adastra.web.domain.topicModel;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
