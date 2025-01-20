@@ -1,7 +1,6 @@
 package com.adastra.web.infra.security;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 
@@ -13,8 +12,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.auth0.jwt.interfaces.DecodedJWT;
-import com.auth0.jwt.interfaces.JWTVerifier;
+
 
 @Service
 public class TokenService {
@@ -35,25 +33,6 @@ public class TokenService {
             throw new RuntimeException();
         }
     }
-
-    /* private String getSubjet(String token) {
-        DecodedJWT verifier = null;
-        try {
-            Algorithm algorithm = Algorithm.HMAC256(apiSecret);
-            verifier = JWT.require(algorithm)
-                .withIssuer("adastra")
-                .build()
-                .verify(token);
-            
-            verifier.getSubject();
-        } catch (JWTVerificationException exception){
-            // Invalid signature/claims
-        }
-        if (verifier.getSubject() == null) {
-            throw new RuntimeException("Invalid verifier");
-        }
-        return verifier.getSubject();
-    } */
 
     public String getSubject(String jwtToken) {
         try {

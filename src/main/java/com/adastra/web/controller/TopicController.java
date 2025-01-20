@@ -47,7 +47,6 @@ public class TopicController {
 
     @GetMapping
     public ResponseEntity<Page<Topic>> topicList(@PageableDefault(size = 3) Pageable pageable) {
-        /* return topicRepository.findAll(pageable); */
         return ResponseEntity.ok(topicRepository.findByIsArchivedFalse(pageable));
     }
 

@@ -33,7 +33,6 @@ public class User implements UserDetails {
     
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        /* throw new UnsupportedOperationException("Unimplemented method 'getAuthorities'"); */
         return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 

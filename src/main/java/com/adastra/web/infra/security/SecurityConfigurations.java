@@ -33,31 +33,11 @@ public class SecurityConfigurations {
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
-    /* public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
-        return httpSecurity.csrf(csrf -> csrf.disable())
-            .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(req -> {
-                req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                req.anyRequest().authenticated();
-            })
-            .
-    }; */
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
-    /* public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.csrf(csrf -> csrf.disable())
-            .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(req -> {
-                req.requestMatchers(HttpMethod.POST, "/login").permitAll();
-                req.anyRequest().authenticated();
-            })
-            .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-            .build();
-    } */
 
     @Bean
     public PasswordEncoder PasswordEncoder() {
